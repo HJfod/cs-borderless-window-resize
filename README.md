@@ -37,3 +37,17 @@ GlobalMouseHandler.SuperMouseMove(System.Drawing.Point Location, bool MouseLeft)
  * bool `MouseLeft`: True if the left mouse button is currently being held.
 
 Event fired when the mouse is moved anywhere, even outside the form.
+
+## Alternative
+
+Why write this library when CreateParams exists, providing the same functionality natively? Well, for some reason when I use CreateParams, it adds this annoying bar at the top of the Form that I can't remove. I've also tried `cp.Style |= 0x20000;`, which works exquisitely on the base Form itself, but after I added Panels on top it no longer worked. This is a solution that works, even if you pack 600 panels on top! I hope.
+
+```
+protected override CreateParams CreateParams {
+    get {
+        CreateParams cp = base.CreateParams;
+        cp.Style |= 0x40000;
+        return cp;
+    }
+}
+```
