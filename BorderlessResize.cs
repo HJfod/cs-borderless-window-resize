@@ -4,9 +4,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Reflection;
 
-namespace BorderlessResize {
-    public delegate void MouseMovedEvent(Point Location, bool MouseDown);
-
+namespace BorderlessResizer {
     public class GlobalMouseHandler {
         /// Massive thank you to where ever the fuck I stole this from
 
